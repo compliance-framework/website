@@ -3,36 +3,33 @@ This document envisions assessment runtime sequence diagrams focused on the diff
 
 
 ### Assessment Runtime - Orchestrator
-#### Registry Workflow (TBC)
+#### Registry & Keepalive workflow
 ```mermaid
 sequenceDiagram
+participant Event Hub
 box AssessmentRuntime
     participant publisher
     participant keepalive
 end
     participant Orchestrator
-    keepalive ->> Orchestrator: "Request new UUID"
-    Orchestrator -->> keepalive: "UUID"
-    keepalive ->> Orchestrator: "Set Keepalive timeout"
-    Orchestrator -->> keepalive: "ACK"
-    keepalive ->> publisher: Instantiates with UUID
-```
-Error on publishing or error on connecting should be handled by the keepalive component.
-
-#### Keepalive workflow
-```mermaid
-sequenceDiagram
-box AssessmentRuntime
-    participant keepalive
-    participant publisher
-end
+    keepalive ->> Orchestrator: My UUID is valid?
+    Orchestrator -->> keepalive: No
+    keepalive ->> Orchestrator: Request new UUID
+    Orchestrator -->> keepalive: <UUID>
+    keepalive ->> Orchestrator: Set Keepalive <timeout>
+    Orchestrator -->> keepalive: ACK
+    keepalive ->> publisher: Instantiates with <UUID>
+    loop Every <timeout>
     keepalive -->> publisher: "pub keepalive msg"
      activate publisher
     publisher -->> Event Hub: "CONNECT"
     Event Hub -->> publisher: "ACK"
     publisher -->> Event Hub: "PUB <msg>"
     Event Hub -->> publisher: "ACK"
+    publisher -->> Event Hub: "DISCONNECT"
+    Event Hub -->> publisher: "ACK"
     deactivate publisher
     publisher -->> keepalive: "SUCCESS"
+    end
 ```
-Error on publishing or error on connecting should be handled by the keepalive component.
+Error on publishing or error on connecting should be handled by the keepalive component, as this might mean it was deregistered due to network failure (so a new UUID request might be needed).
