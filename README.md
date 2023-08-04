@@ -4,7 +4,11 @@ place for architecture, docs, and eventually a website
 
 ## Descriptions
 ### Configuration Service
-Configuration Service is responsible for managing any configuration updates to the database, including CRUD operations for Components, Controls, Assessments, Attestations and to some extent on AttestationJobSpecs (configuration might not be responsible for creating the attestationJobSpecs themselves, though)
+Configuration Service is responsible for managing any configuration updates to the database, including CRUD operations for Components, Controls, Assessments, Attestations and to some extent on AttestationJobSpecs (configuration might not be responsible for creating the attestationJobSpecs themselves, though). It is also responsible for book keeping any registering/deregistering runtimes. 
+
+### Runtime Orchestrator 
+The runtime orchestrator should orchestrate the creation, deletion and monitoring of assessment runtimes. It will communicate with the event bus to create credentials and provide IDs for any runtime that wants to connect. There will also be a cleanup mechanism that utilises a "healthz" style uptime monitoring to ensure assessment runtimes are active.
+
 ### Assessment Runtime
   Assessment Runtime is a robust application, developed using Go, designed to execute and manage assessment plugins in the form of WebAssembly (WASM) modules. It serves as a crucial interface between these plugins and the Argus control plane, orchestrating assessments and channeling results back to the control plane for thorough analysis.
 
@@ -99,3 +103,28 @@ sequenceDiagram
 
 ```
 
+The Runtime Orchestrator will be in charge of checking the uptime of the assessment runtimes
+
+```mermaid
+sequenceDiagram
+    Assessment Runtime ->> Runtime Orchestrator: Request new UUID
+    Runtime Orchestrator ->> Configuration: Generate UUID and store in config
+    Configuration ->> Runtime Orchestrator: Response
+    Runtime Orchestrator ->> Assessment Runtime: Provides new UUID
+    Assessment Runtime ->> Runtime Orchestrator: Set the expected runtime pulse interval
+    Runtime Orchestrator ->> Configuration: Store pulse interval for runtime in config
+    Configuration ->> Runtime Orchestrator: Response
+    Runtime Orchestrator ->> Assessment Runtime: Response
+```
+
+```mermaid
+sequenceDiagram
+    Assessment Runtime ->> Event Bus: Push liveliness pule with UUID
+    Runtime Orchestrator ->> Event Bus: Pull all new pulses
+    Runtime Orchestrator ->> Configuration: Update entries for UUIDs with last pulse time
+    Configuration ->> Runtime Orchestrator: Response
+    Runtime Orchestrator ->> Configuration: Give all the assessment runtimes last pulse timeand their pulse interval
+    Configuration ->> Runtime Orchestrator: Response
+    Runtime Orchestrator ->> Runtime Orchestrator: Consider assessment runtimes with pulse > pulse interval to be dead
+
+```
