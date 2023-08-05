@@ -8,61 +8,61 @@ This document envisions assessment runtime sequence diagrams focused on the diff
 ```mermaid
 sequenceDiagram
 actor Assessment Component
-participant publisher
-    Assessment Component -->> publisher: "pub keepalive msg"
-     activate publisher
-    publisher -->> Event Hub: "CONNECT"
-    Event Hub -->> publisher: "ACK"
-    publisher -->> Event Hub: "PUB <msg>"
-    Event Hub -->> publisher: "ACK"
-    publisher -->> Event Hub: "DISCONNECT"
-    Event Hub -->> publisher: "ACK"
-    deactivate publisher
-    publisher -->> Assessment Component: "SUCCESS"
+participant RuntimePublisher
+    Assessment Component -->> RuntimePublisher: "pub RuntimeKeepalive msg"
+     activate RuntimePublisher
+    RuntimePublisher -->> Event Hub: "CONNECT"
+    Event Hub -->> RuntimePublisher: "ACK"
+    RuntimePublisher -->> Event Hub: "PUB <msg>"
+    Event Hub -->> RuntimePublisher: "ACK"
+    RuntimePublisher -->> Event Hub: "DISCONNECT"
+    Event Hub -->> RuntimePublisher: "ACK"
+    deactivate RuntimePublisher
+    RuntimePublisher -->> Assessment Component: "SUCCESS"
 
 ```
 #### Registry & Keepalive workflow
 ```mermaid
 sequenceDiagram
 box AssessmentRuntime
-    participant publisher
-    participant keepalive
+    participant RuntimePublisher
+    participant RuntimeKeepalive
 end
     participant Orchestrator
-    keepalive ->> Orchestrator: My UUID is valid?
-    Orchestrator -->> keepalive: No
-    keepalive ->> Orchestrator: Request new UUID
-    Orchestrator -->> keepalive: <UUID>
-    keepalive ->> Orchestrator: Set Keepalive <timeout>
-    Orchestrator -->> keepalive: ACK
-    keepalive ->> publisher: Instantiates with <UUID>
+    RuntimeKeepalive ->> Orchestrator: My UUID is valid?
+    Orchestrator -->> RuntimeKeepalive: No
+    RuntimeKeepalive ->> Orchestrator: Request new UUID
+    Orchestrator -->> RuntimeKeepalive: <UUID>
+    RuntimeKeepalive ->> Orchestrator: Set Keepalive <timeout>
+    Orchestrator -->> RuntimeKeepalive: ACK
+    RuntimeKeepalive ->> RuntimePublisher: Instantiates with <UUID>
     loop Every <timeout>
-    keepalive -->> publisher: "pub keepalive msg"
-    publisher -->> keepalive: "SUCCESS"
+    RuntimeKeepalive -->> RuntimePublisher: "pub RuntimeKeepalive msg"
+    RuntimePublisher -->> RuntimeKeepalive: "SUCCESS"
     end
 ```
-Error on publishing or error on connecting should be handled by the keepalive component, as this might mean it was deregistered due to network failure (so a new UUID request might be needed).
+Error on publishing or error on connecting should be handled by the RuntimeKeepalive component, as this might mean it was deregistered due to network failure (so a new UUID request might be needed).
 
 #### JobManager workflow
 ```mermaid
 sequenceDiagram
 box AssessmentRuntime
-    participant jobRunner
-    participant jobManager
-    participant configStore
-    participant confSync
+    participant RuntimeJobRunner
+    participant RuntimeJobManager
+    participant RuntimeConfStore
+    participant RuntimeConfSync
 end
 participant Configuration
     loop Every <config_sync_interval>
-    confSync ->> Configuration: "GET /config/jobSpecs/diff/<uuid>"
-    Configuration ->> confSync: "jobSpecs"
-    confSync ->> configStore: update Job Specs
+    RuntimeConfSync ->> Configuration: "GET /config/jobSpecs/diff/<uuid>"
+    Configuration ->> RuntimeConfSync: "jobSpecs"
+    RuntimeConfSync ->> RuntimeConfStore: update Job Specs
     end
     loop Every <job_run_resync_interval>
-    jobManager ->> configStore: get Job Specs
-    jobManager ->> jobRunner: stop changed jobs
-    jobManager ->> jobRunner: async start new jobs
-    jobRunner ->> jobRunner: JobRunner Workflow
+    RuntimeJobManager ->> RuntimeConfStore: get Job Specs
+    RuntimeJobManager ->> RuntimeJobRunner: stop changed jobs
+    RuntimeJobManager ->> RuntimeJobRunner: async start new jobs
+    RuntimeJobRunner ->> RuntimeJobRunner: JobRunner Workflow
     end
 ```
 
@@ -71,21 +71,21 @@ participant Configuration
 sequenceDiagram
 participant pluginStore
 box AssessmentRuntime
-    participant publisher
-    participant jobRunner
+    participant RuntimePublisher
+    participant RuntimeJobRunner
     participant pluginExecutable
 end
 participant CFComponent
-    jobRunner --x pluginStore: [Optional] - Download plugin
+    RuntimeJobRunner --x pluginStore: [Optional] - Download plugin
     loop Every <job_spec_interval>
-    jobRunner ->> pluginExecutable: execute
+    RuntimeJobRunner ->> pluginExecutable: execute
     pluginExecutable --> CFComponent: Attest
     CFComponent --> pluginExecutable: AttestationResult
-    pluginExecutable ->> jobRunner: AttestationResult
-    jobRunner ->> publisher: Instantiates with UUID
-    jobRunner -->> publisher: Publish AttestationResult
-    activate publisher
-    publisher -->> jobRunner: SUCCESS
-    deactivate publisher
+    pluginExecutable ->> RuntimeJobRunner: AttestationResult
+    RuntimeJobRunner ->> RuntimePublisher: Instantiates with UUID
+    RuntimeJobRunner -->> RuntimePublisher: Publish AttestationResult
+    activate RuntimePublisher
+    RuntimePublisher -->> RuntimeJobRunner: SUCCESS
+    deactivate RuntimePublisher
     end
 ```
