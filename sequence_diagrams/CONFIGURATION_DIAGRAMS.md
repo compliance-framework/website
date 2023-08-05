@@ -72,29 +72,3 @@ sequenceDiagram
 
 ```
 
-### Runtime orchestrator Diagrams
-The Runtime Orchestrator will be in charge of checking the uptime of the assessment runtimes
-
-```mermaid
-sequenceDiagram
-    Assessment Runtime ->> Runtime Orchestrator: Request new UUID
-    Runtime Orchestrator ->> Configuration: Generate UUID and store in config
-    Configuration ->> Runtime Orchestrator: Response
-    Runtime Orchestrator ->> Assessment Runtime: Provides new UUID
-    Assessment Runtime ->> Runtime Orchestrator: Set the expected runtime pulse interval
-    Runtime Orchestrator ->> Configuration: Store pulse interval for runtime in config
-    Configuration ->> Runtime Orchestrator: Response
-    Runtime Orchestrator ->> Assessment Runtime: Response
-```
-
-```mermaid
-sequenceDiagram
-    Assessment Runtime ->> Event Bus: Push liveliness pule with UUID
-    Runtime Orchestrator ->> Event Bus: Pull all new pulses
-    Runtime Orchestrator ->> Configuration: Update entries for UUIDs with last pulse time
-    Configuration ->> Runtime Orchestrator: Response
-    Runtime Orchestrator ->> Configuration: Give all the assessment runtimes last pulse timeand their pulse interval
-    Configuration ->> Runtime Orchestrator: Response
-    Runtime Orchestrator ->> Runtime Orchestrator: Consider assessment runtimes with pulse > pulse interval to be dead
-
-```
