@@ -18,7 +18,7 @@ help-all: ## Display all help items, ie including plumbing targets
 
 ##@ Website
 run: ## Run the website locally
-	@npm run docs:dev
+	@npm run dev
 
 build: ## Build the static website files
-	@npm run docs:build
+	@npm run build

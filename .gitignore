@@ -2,8 +2,8 @@
 .idea
 .DS_store
 # VuePress default temp directory
-docs/.vuepress/.temp
+src/.vuepress/.temp
 # VuePress default cache directory
-docs/.vuepress/.cache
+src/.vuepress/.cache
 # VuePress default build output directory
-docs/.vuepress/dist
+src/.vuepress/dist

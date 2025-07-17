@@ -4,8 +4,8 @@
   "description": "Hosts the website, blog and docs for the Continuous Compliance Framework",
   "main": "index.js",
   "scripts": {
-    "docs:dev": "vuepress dev docs",
-    "docs:build": "vuepress build docs"
+    "dev": "vuepress dev src",
+    "build": "vuepress build src"
   },
   "author": "",
   "license": "ISC",
