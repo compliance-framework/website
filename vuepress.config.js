@@ -1,10 +1,11 @@
 import { viteBundler } from '@vuepress/bundler-vite'
 import { defaultTheme } from '@vuepress/theme-default'
 import { defineUserConfig } from 'vuepress'
+import { ccfTheme } from './theme';
 
 export default defineUserConfig({
   bundler: viteBundler(),
-  theme: defaultTheme(),
+  theme: ccfTheme(),
 
   lang: 'en-US',
   title: 'The Continuous Compliance Framework',
