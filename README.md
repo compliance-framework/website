@@ -2,9 +2,9 @@
 
 Hosts the website, blog and docs for the Continuous Compliance Framework
 
-The website is built using VuePress https://vuepress.github.io/, and utilises a customised version of the default theme.
+The website is built using [VuePress](https://vuepress.github.io/), and utilises a customised version of the [default theme](https://ecosystem.vuejs.press/themes/default/).
 
-It also utilises TailwindCSS for styling. 
+It also utilises [TailwindCSS](https://tailwindcss.com/) for styling. 
 
 ## Installation
 
