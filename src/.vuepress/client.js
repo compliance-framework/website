@@ -1,8 +1,10 @@
 import { defineClientConfig } from 'vuepress/client'
-import Home from './layouts/home.vue'
+import Website from './layouts/website.vue'
+
+import './styles/main.css'
 
 export default defineClientConfig({
   layouts: {
-    Home,
+    Website,
   },
 })

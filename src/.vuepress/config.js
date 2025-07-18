@@ -1,19 +1,23 @@
-import { viteBundler } from '@vuepress/bundler-vite'
-import { defaultTheme } from '@vuepress/theme-default'
-import { markdownImagePlugin } from '@vuepress/plugin-markdown-image'
-import { registerComponentsPlugin } from '@vuepress/plugin-register-components'
-
-
-import { defineUserConfig } from 'vuepress'
+import {viteBundler} from '@vuepress/bundler-vite'
+import {defaultTheme} from '@vuepress/theme-default'
+import {markdownImagePlugin} from '@vuepress/plugin-markdown-image'
+import {registerComponentsPlugin} from '@vuepress/plugin-register-components'
+import {defineUserConfig} from 'vuepress'
+import {getDirname, path} from 'vuepress/utils'
+import tailwindcss from "@tailwindcss/vite";
 
 import docsSidebar from '../docs/sidebar.js'
-
-import { getDirname, path } from 'vuepress/utils'
 
 const __dirname = import.meta.dirname || getDirname(import.meta.url)
 
 export default defineUserConfig({
-  bundler: viteBundler(),
+  bundler: viteBundler({
+    viteOptions: {
+      plugins: [
+        tailwindcss(),
+      ]
+    }
+  }),
 
   theme: defaultTheme({
     sidebar: {

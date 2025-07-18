@@ -1,7 +1,3 @@
 <template>
-  <h1 style="font-size: 12rem"><slot /></h1>
+  <h1 class="bg-blue-500"><slot /></h1>
 </template>
-
-<style scoped lang="css">
-
-</style>
