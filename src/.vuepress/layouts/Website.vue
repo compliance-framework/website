@@ -18,6 +18,6 @@ import ParentLayout from '@vuepress/theme-default/layouts/Layout.vue'
 }
 
 #content .content-block:nth-child(even) {
-  @apply bg-blue-50;
+  @apply bg-blue-50 dark:bg-zinc-900;
 }
 </style>
