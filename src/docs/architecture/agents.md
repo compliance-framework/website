@@ -2,22 +2,15 @@
 
 ---
 
-import useBaseUrl from '@docusaurus/useBaseUrl';
-import ThemedImage from '@theme/ThemedImage';
-
 # Compliance Agents
 
 The Continuous Compliance Framework Agent is a lightweight scheduler and orchestrator for compliance plugins. It is used 
 as a way to collect information about specific systems, compare them with regulatory and internal policy, and then pass 
 the resulting information to the Central API.
 
-<ThemedImage
-    alt="Architecture Diagram showing the Continuous Compliance Agent"
-    sources={{
-        light: useBaseUrl('img/CCFAgentPluginLight.png'),
-        dark: useBaseUrl('img/CCFAgentPluginDark.png'),
-    }}
-/>
+
+![Architecture Diagram showing the Continuous Compliance Agent](/img/CCFAgentPluginLight.png#light)
+![Architecture Diagram showing the Continuous Compliance Agent](/img/CCFAgentPluginDark.png#dark)
 
 CCF is not limited to only accepting information from its agent. CCF can accept information from any source that 
 conforms to its API, making it extendable beyond the use of the Agent. 

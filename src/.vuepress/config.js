@@ -1,10 +1,16 @@
 import { viteBundler } from '@vuepress/bundler-vite'
 import { defaultTheme } from '@vuepress/theme-default'
 import { markdownImagePlugin } from '@vuepress/plugin-markdown-image'
+import { registerComponentsPlugin } from '@vuepress/plugin-register-components'
+
 
 import { defineUserConfig } from 'vuepress'
 
 import docsSidebar from '../docs/sidebar.js'
+
+import { getDirname, path } from 'vuepress/utils'
+
+const __dirname = import.meta.dirname || getDirname(import.meta.url)
 
 export default defineUserConfig({
   bundler: viteBundler(),
@@ -52,6 +58,9 @@ export default defineUserConfig({
       mark: true,
       // Enable image size
       size: true,
+    }),
+    registerComponentsPlugin({
+      componentsDir: path.resolve(__dirname, './components'),
     }),
   ],
 

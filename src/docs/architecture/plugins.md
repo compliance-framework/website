@@ -3,10 +3,6 @@ sidebar_position: 3
 sidebar_label: Plugins
 ---
 
-import DocCardList from '@theme/DocCardList';
-import useBaseUrl from '@docusaurus/useBaseUrl';
-import ThemedImage from '@theme/ThemedImage';
-
 # Compliance Plugins
 
 The CCF Agent does not know how to verify the correctness, or even how to gather details of all the possible subsystems
@@ -15,13 +11,8 @@ that could be verified through the CCF. This is where plugins become important.
 Plugins in The CCF and responsible for gathering data about specific subsystems, and representing them as json 
 objects, allowing policies to be written to verify their correctness. 
 
-<ThemedImage
-    alt="Architecture Diagram showing the Continuous Compliance Agent"
-    sources={{
-        light: useBaseUrl('img/CCFPluginLight.png'),
-        dark: useBaseUrl('img/CCFPluginDark.png'),
-    }}
-/>
+![Architecture Diagram showing the Continuous Compliance Agent](/img/CCFPluginLight.png#light)
+![Architecture Diagram showing the Continuous Compliance Agent](/img/CCFPluginDark.png#dark)
 
 ## Security
 
