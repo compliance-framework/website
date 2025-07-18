@@ -11,6 +11,7 @@
   "license": "ISC",
   "devDependencies": {
     "@vuepress/bundler-vite": "^2.0.0-rc.24",
+    "@vuepress/plugin-blog": "^2.0.0-rc.112",
     "@vuepress/plugin-markdown-image": "^2.0.0-rc.112",
     "@vuepress/plugin-register-components": "^2.0.0-rc.112",
     "@vuepress/theme-default": "^2.0.0-rc.112",

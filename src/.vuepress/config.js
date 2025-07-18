@@ -1,11 +1,12 @@
 import {viteBundler} from '@vuepress/bundler-vite'
 import {defaultTheme} from '@vuepress/theme-default'
 import {markdownImagePlugin} from '@vuepress/plugin-markdown-image'
+import {blogPlugin} from '@vuepress/plugin-blog'
 import {registerComponentsPlugin} from '@vuepress/plugin-register-components'
 import {defineUserConfig} from 'vuepress'
 import {getDirname, path} from 'vuepress/utils'
 import tailwindcss from "@tailwindcss/vite";
-import { createPage } from 'vuepress/core'
+import {createPage} from 'vuepress/core'
 
 import docsSidebar from '../docs/sidebar.js'
 
@@ -70,6 +71,44 @@ export default defineUserConfig({
     registerComponentsPlugin({
       componentsDir: path.resolve(__dirname, './components'),
     }),
+    blogPlugin({
+      filter: ({filePathRelative, frontmatter}) => {
+        // drop those pages which is NOT generated from file
+        if (!filePathRelative) return false
+
+        // drop those pages in `archives` directory
+        if (!filePathRelative.startsWith('posts/')) return false
+
+        return true
+      },
+
+      category: [
+        {
+          key: 'tags',
+          getter: ({frontmatter}) => frontmatter.tags || [],
+          // path: '/tag/',
+          // layout: 'TagMap',
+
+          frontmatter: () => ({title: 'Tag page'}),
+          // itemPath: '/tag/:name/',
+          // itemLayout: 'TagList',
+          itemFrontmatter: (name) => ({title: `Tag ${name}`}),
+        },
+      ],
+
+      getInfo: ({frontmatter, title, git = {}, data = {}}) => {
+        // get page info
+        return {
+          title,
+          description: frontmatter.description || '',
+          author: frontmatter.author || '',
+          categories: frontmatter.categories || [],
+          date: frontmatter.date || git.createdTime || null,
+          tags: frontmatter.tags || [],
+          excerpt: data.excerpt || '',
+        }
+      },
+    }),
   ],
 
   async onInitialized(app) {
@@ -92,6 +131,10 @@ export default defineUserConfig({
       path: '/features.html',
       frontmatter: {layout: 'Website'},
       content: `<FeaturesPage></FeaturesPage>`,
+    }))
+    app.pages.push(await createPage(app, {
+      path: '/posts/',
+      content: `<PostListPage></PostListPage>`,
     }))
   },
 
