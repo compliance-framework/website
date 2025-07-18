@@ -5,6 +5,7 @@ import {registerComponentsPlugin} from '@vuepress/plugin-register-components'
 import {defineUserConfig} from 'vuepress'
 import {getDirname, path} from 'vuepress/utils'
 import tailwindcss from "@tailwindcss/vite";
+import { createPage } from 'vuepress/core'
 
 import docsSidebar from '../docs/sidebar.js'
 
@@ -30,8 +31,8 @@ export default defineUserConfig({
         link: '/',
       },
       {
-        text: 'About',
-        link: '/about',
+        text: 'Features',
+        link: '/features',
       },
       {
         text: 'Integrations',
@@ -64,9 +65,35 @@ export default defineUserConfig({
       size: true,
     }),
     registerComponentsPlugin({
+      componentsDir: path.resolve(__dirname, './pages'),
+    }),
+    registerComponentsPlugin({
       componentsDir: path.resolve(__dirname, './components'),
     }),
   ],
+
+  async onInitialized(app) {
+    app.pages.push(await createPage(app, {
+      path: '/',
+      frontmatter: {layout: 'Website'},
+      content: `<HomePage></HomePage>`,
+    }))
+    app.pages.push(await createPage(app, {
+      path: '/pricing.html',
+      frontmatter: {layout: 'Website'},
+      content: `<PricingPage></PricingPage>`,
+    }))
+    app.pages.push(await createPage(app, {
+      path: '/integrations.html',
+      frontmatter: {layout: 'Website'},
+      content: `<IntegrationsPage></IntegrationsPage>`,
+    }))
+    app.pages.push(await createPage(app, {
+      path: '/features.html',
+      frontmatter: {layout: 'Website'},
+      content: `<FeaturesPage></FeaturesPage>`,
+    }))
+  },
 
   lang: 'en-US',
   title: 'The Continuous Compliance Framework',

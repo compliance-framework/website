@@ -6,13 +6,3 @@ import ParentLayout from '@vuepress/theme-default/layouts/Layout.vue'
   <ParentLayout>
   </ParentLayout>
 </template>
-
-<style lang="css">
-h1 {
-  font-size: 4rem;
-}
-
-p {
-  font-size: 1rem;
-}
-</style>
