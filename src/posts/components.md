@@ -1,6 +1,6 @@
 ---
 title: The 3 OSCAL Components
-#description: Comparing the different Component types in OSCAL, and what each is used for
+description: Comparing the different Component types in OSCAL, and what each is used for.
 tags:
 - oscal
 ---

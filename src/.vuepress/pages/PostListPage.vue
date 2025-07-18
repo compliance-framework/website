@@ -12,7 +12,6 @@ Object.entries(categoryMap.value.map).forEach(([key, value]) => {
   })
 })
 const blogs = Object.values(reduced)
-console.log(blogs)
 </script>
 
 <template>
