@@ -25,4 +25,4 @@ dashboards for continuous monitoring of controls.
 The Central API compiles all the ingested results into a complete OSCAL document, which is used to continuously
 report compliance information to auditory bodies.
 
-[Introduction](./introduction/)
+[Introduction](./introduction.md)

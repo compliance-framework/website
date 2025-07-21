@@ -1,4 +1,4 @@
-## Risks, Findings and Observations
+# Risks, Findings and Observations
 
 In the realm of security and compliance assessments, "Risks" are identified and articulated based on the information presented in "Findings" and "Observations." Here's a breakdown of the process:
 

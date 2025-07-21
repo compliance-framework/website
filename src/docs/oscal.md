@@ -1,5 +1,0 @@
----
-title: OSCAL
----
-
-# Some oscal
