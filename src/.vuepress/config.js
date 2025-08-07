@@ -35,14 +35,14 @@ export default defineUserConfig({
         text: 'Features',
         link: '/features',
       },
-      {
-        text: 'Integrations',
-        link: '/integrations',
-      },
-      {
-        text: 'Pricing',
-        link: '/pricing',
-      },
+      //{
+      //  text: 'Integrations',
+      //  link: '/integrations',
+      //},
+      //{
+      //  text: 'Pricing',
+      //  link: '/pricing',
+      //},
       {
         text: 'Blog',
         link: '/posts/',

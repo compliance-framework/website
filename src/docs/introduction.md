@@ -5,13 +5,13 @@ sidebar_label: The Continuous Compliance Framework
 
 # What is The Continuous Compliance Framework?
 
-The Continuous Compliance Framework (CCF) is an open source, automated compliance testing and reporting system designed 
-to help organizations continuously assess their adherence to regulatory standards such as NIST SP 800-53, SOC 2, 
-PCI DSS, and GDPR. It integrates policy-based compliance checks, real-time monitoring, and structured reporting to 
+The Continuous Compliance Framework (CCF) is an open source, automated compliance testing and reporting system designed
+to help organizations continuously assess their adherence to regulatory standards such as NIST SP 800-53, SOC 2,
+PCI DSS, and GDPR. It integrates policy-based compliance checks, real-time monitoring, and structured reporting to
 streamline the traditionally manual and periodic audit processes.
 
-CCF aims to simplify compliance challenges and promote continuous verification and collaboration within the governance, 
-risk and control (GRC) community. CCF contributors are constantly engaged with the OSCAL, CNCF Compliance, and NIST 
+CCF aims to simplify compliance challenges and promote continuous verification and collaboration within the governance,
+risk and control (GRC) community. CCF contributors are constantly engaged with the OSCAL, CNCF Compliance, and NIST
 working groups to build the future of automated compliance and reporting.
 
 ## Key Features
@@ -22,7 +22,7 @@ CCF is Open Source.
 
 ### Automated, Continuous Compliance Verification
 
-CCF enables organisations to continuously, and automatically collect evidence and validate compliance against regulatory 
+CCF enables organisations to continuously, and automatically collect evidence and validate compliance against regulatory
 security & operational requirements, reducing the manual effort involved in compliance reporting.
 
 Real-time notifications and alerts allow fast response to requirement drifts.
@@ -33,10 +33,10 @@ Powered by MongoDB, it acts as the single source of truth for compliance data.
 
 ### Open To Extension
 
-The CCF API accepts OSCAL-compliant data from anywhere. This allows your favourite tools to send compliance-related 
+The CCF API accepts OSCAL-compliant data from anywhere. This allows your favourite tools to send compliance-related
 information to it, and include it as part of your overall compliance reporting.
 
-This makes it easy to integrate with third party tools such as 
+This makes it easy to integrate with third party tools such as
 * Cloud Service Providers
   * AWS
   * Azure
@@ -48,7 +48,7 @@ This makes it easy to integrate with third party tools such as
   * Kubernetes
   * etc.
 * Version Control Systems
-  * Github 
+  * Github
   * Gitlab
   * etc.
 * Container Vulnerability Scanners
@@ -61,10 +61,10 @@ This makes it easy to integrate with third party tools such as
   * Gitlab
   * Snyk
 * Open Source Software and License compliance scanners (SCA, SAST, DAST, etc.)
-  * Sonarqube, 
-  * Gitlab, 
-  * Snyk, 
-  * Blackduck, 
+  * Sonarqube,
+  * Gitlab,
+  * Snyk,
+  * Blackduck,
   * etc.
 
 ### Pluggable GRPC Architecture
@@ -87,7 +87,7 @@ CCF supports staged rollouts of compliance policies and plugins via OCI registri
 
 ### OSCAL-Compliant Reporting
 
-Generates structured compliance reports in NIST's OSCAL format which can be directly shared with auditory bodies to 
+Generates structured compliance reports in NIST's OSCAL format which can be directly shared with auditory bodies to
 verify regulatory compliance, and manage the full GRC lifecycle.
 
 - Real-time compliance dashboards
