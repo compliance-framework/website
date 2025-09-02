@@ -33,18 +33,9 @@ jobs:
       - name: Build site
         run: npm run build
 
-#      # OPTIONAL: write a CNAME file if you use a custom domain
-#      # Set this in repo Settings → Secrets and variables → Actions → Variables
-#      - name: Add CNAME (optional)
-#        if: ${{ env.CUSTOM_DOMAIN != '' }}
-#        run: echo "${{ env.CUSTOM_DOMAIN }}" > src/.vuepress/dist/CNAME
-#        env:
-#          CUSTOM_DOMAIN: ${{ vars.CUSTOM_DOMAIN }}
-
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # VuePress output (yours builds to src/.vuepress/dist)
           path: src/.vuepress/dist
 
   deploy:
