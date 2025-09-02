@@ -13,6 +13,8 @@ import docsSidebar from '../docs/sidebar.js'
 const __dirname = import.meta.dirname || getDirname(import.meta.url)
 
 export default defineUserConfig({
+  base: '/website/',
+
   bundler: viteBundler({
     viteOptions: {
       plugins: [
