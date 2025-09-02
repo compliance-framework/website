@@ -12,7 +12,8 @@ import ContentBlock from "../components/ContentBlock.vue";
       PCI DSS, and GDPR. It integrates policy-based compliance checks, real-time monitoring, and structured reporting to
       streamline and centralise traditionally manual, periodic and disparate audit processes.
     </p>
-    <img src="/img/ccf-logo.png" alt="CCF Logo" class="w-full max-w-3xl mx-auto my-8" />
+    <img src="/img/logo-light.svg" alt="CCF Logo" class="w-full max-w-3xl mx-auto my-8 dark:hidden" />
+    <img src="/img/logo-dark.svg" alt="CCF Logo" class="w-full max-w-3xl mx-auto my-8 hidden dark:block" />
     <p>
       It's built and maintained by the team at Container Solutions, with contributions from the open source community.
     </p>
