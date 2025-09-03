@@ -8,6 +8,9 @@ import ContentBlock from "../components/ContentBlock.vue";
     <p>
       Start free and scale with your team. Self-host or get enterprise support.
     </p>
+    <p>
+      Talk to <a class="button" href="mailto:ian.miell@container-solutions.com" target="_blank" rel="noopener">sales</a> for a demo or custom quote.
+    </p>
   </ContentBlock>
 
   <ContentBlock>
@@ -25,7 +28,7 @@ import ContentBlock from "../components/ContentBlock.vue";
           <li>Community support</li>
         </ul>
         <div class="actions">
-          <a class="button" href="https://github.com/ContainerSolutions/compliance-framework" target="_blank" rel="noopener">Get on GitHub</a>
+          <a class="button" href="https://github.com/compliance-framework" target="_blank" rel="noopener">Get on GitHub</a>
         </div>
       </div>
 
@@ -42,7 +45,7 @@ import ContentBlock from "../components/ContentBlock.vue";
           <li>SLAs</li>
         </ul>
         <div class="actions">
-          <a class="button primary" href="mailto:hello@container-solutions.com">Talk to us</a>
+          <a class="button" href="mailto:ian.miell@container-solutions.com">Contact sales</a>
         </div>
       </div>
 
@@ -53,13 +56,12 @@ import ContentBlock from "../components/ContentBlock.vue";
         </div>
         <p>Tailored services and integrations.</p>
         <ul class="features">
-          <li>Architecture reviews</li>
-          <li>Custom controls & mappings</li>
+          <li>Enterprise features</li>
           <li>Private plugins</li>
           <li>Dedicated support</li>
         </ul>
         <div class="actions">
-          <a class="button" href="mailto:hello@container-solutions.com">Contact sales</a>
+          <a class="button" href="mailto:ian.miell@container-solutions.com">Contact sales</a>
         </div>
       </div>
     </div>
