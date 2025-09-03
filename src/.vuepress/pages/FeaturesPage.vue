@@ -6,6 +6,10 @@ import ContentBlock from "../components/ContentBlock.vue";
 
   <ContentBlock>
     <h1>Features</h1>
+    <p>
+      Prefer videos? Watch short demos on the
+      <a href="/videos.html">Demos</a> page.
+    </p>
   </ContentBlock>
 
   <ContentBlock>

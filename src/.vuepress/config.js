@@ -66,6 +66,10 @@ export default defineUserConfig({
         text: 'Features',
         link: '/features',
       },
+      {
+        text: 'Demos',
+        link: '/videos',
+      },
       //{
       //  text: 'Integrations',
       //  link: '/integrations',
@@ -162,6 +166,11 @@ export default defineUserConfig({
       path: '/features.html',
       frontmatter: {layout: 'Website'},
       content: `<FeaturesPage></FeaturesPage>`,
+    }))
+    app.pages.push(await createPage(app, {
+      path: '/videos.html',
+      frontmatter: {layout: 'Website'},
+      content: `<VideosPage></VideosPage>`,
     }))
     app.pages.push(await createPage(app, {
       path: '/posts/',

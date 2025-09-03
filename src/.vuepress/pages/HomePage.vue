@@ -25,4 +25,12 @@ import ContentBlock from "../components/ContentBlock.vue";
     <p> See <a href='features.html'>here</a> for features. </p>
   </ContentBlock>
 
+  <ContentBlock>
+    <h1>Demos</h1>
+    <p>
+      Prefer to watch? See quick product demos and walkthroughs
+      <a href='videos.html'>here</a>.
+    </p>
+  </ContentBlock>
+
 </template>
