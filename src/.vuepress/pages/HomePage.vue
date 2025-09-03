@@ -26,6 +26,13 @@ import ContentBlock from "../components/ContentBlock.vue";
   </ContentBlock>
 
   <ContentBlock>
+    <h1>Pricing</h1>
+    <p>
+      See plans and support options <a href='pricing.html'>here</a>.
+    </p>
+  </ContentBlock>
+
+  <ContentBlock>
     <h1>Demos</h1>
     <p>
       Prefer to watch? See quick product demos and walkthroughs

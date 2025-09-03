@@ -67,6 +67,10 @@ export default defineUserConfig({
         link: '/features',
       },
       {
+        text: 'Pricing',
+        link: '/pricing',
+      },
+      {
         text: 'Demos',
         link: '/videos',
       },
