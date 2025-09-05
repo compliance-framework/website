@@ -3,6 +3,8 @@ import ParentLayout from '@vuepress/theme-default/layouts/Layout.vue'
 </script>
 
 <template>
-  <ParentLayout>
-  </ParentLayout>
+  <div class="markdown">
+    <ParentLayout>
+    </ParentLayout>
+  </div>
 </template>

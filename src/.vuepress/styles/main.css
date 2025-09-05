@@ -1,3 +1,9 @@
 @import "tailwindcss";
 
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+
+.markdown {
+    p {
+        @apply my-2;
+    }
+}
