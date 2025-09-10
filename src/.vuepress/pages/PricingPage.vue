@@ -1,5 +1,5 @@
 <script setup>
-import ContentBlock from "../components/ContentBlock.vue";
+import ContentBlockWide from "../components/ContentBlockWide.vue";
 </script>
 
 <template>
@@ -11,7 +11,6 @@ import ContentBlock from "../components/ContentBlock.vue";
   <p>
     Talk to <a class="button" href="mailto:ian.miell@container-solutions.com" target="_blank" rel="noopener">sales</a> for a demo or custom quote.
   </p>
-
   <div class="pricing-grid">
     <div class="card">
       <div class="card-header">
@@ -29,11 +28,10 @@ import ContentBlock from "../components/ContentBlock.vue";
         <a class="button" href="https://github.com/compliance-framework" target="_blank" rel="noopener">Get on GitHub</a>
       </div>
     </div>
-
     <div class="card highlighted">
       <div class="card-header">
         <h3>Team</h3>
-        <div class="price">Daily rates</div>
+        <div class="price">Rates on Request</div>
       </div>
       <p>Support for teams adopting CCF.</p>
       <ul class="features">
@@ -50,13 +48,14 @@ import ContentBlock from "../components/ContentBlock.vue";
     <div class="card">
       <div class="card-header">
         <h3>Enterprise</h3>
-        <div class="price">£15,000/year</div>
+        <div class="price">From £15,000/year</div>
       </div>
       <p>Tailored services and integrations.</p>
       <ul class="features">
         <li>Enterprise edition</li>
         <li>Curated OSCAL catalogs</li>
         <li>Support and maintenance</li>
+        <li>Prioritised feature requests</li>
       </ul>
       <div class="actions">
         <a class="button" href="mailto:ian.miell@container-solutions.com">Contact sales</a>
@@ -71,6 +70,19 @@ import ContentBlock from "../components/ContentBlock.vue";
   display: grid;
   gap: 1.5rem;
   grid-template-columns: 1fr;
+  align-items: stretch;
+}
+
+@media (min-width: 768px) {
+  .pricing-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .pricing-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
 }
 
 .card {
