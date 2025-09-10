@@ -3,69 +3,67 @@ import ContentBlock from "../components/ContentBlock.vue";
 </script>
 
 <template>
-  <ContentBlock>
-    <h1>Pricing</h1>
-    <p>
-      Start free and scale with your team. Self-host or get enterprise support.
-    </p>
-    <p>
-      Talk to <a class="button" href="mailto:ian.miell@container-solutions.com" target="_blank" rel="noopener">sales</a> for a demo or custom quote.
-    </p>
-  </ContentBlock>
+  <ContentBlockWide>
+  <h1>Pricing</h1>
+  <p>
+    Start free and scale with your team. Self-host or get enterprise support.
+  </p>
+  <p>
+    Talk to <a class="button" href="mailto:ian.miell@container-solutions.com" target="_blank" rel="noopener">sales</a> for a demo or custom quote.
+  </p>
 
-  <ContentBlock>
-    <div class="pricing-grid">
-      <div class="card">
-        <div class="card-header">
-          <h3>Open Source</h3>
-          <div class="price">Free</div>
-        </div>
-        <p>All core features. Self-hosted.</p>
-        <ul class="features">
-          <li>Policy-as-code checks</li>
-          <li>Dashboards and findings</li>
-          <li>Plugin/agent framework</li>
-          <li>Community support</li>
-        </ul>
-        <div class="actions">
-          <a class="button" href="https://github.com/compliance-framework" target="_blank" rel="noopener">Get on GitHub</a>
-        </div>
+  <div class="pricing-grid">
+    <div class="card">
+      <div class="card-header">
+        <h3>Open Source</h3>
+        <div class="price">Free</div>
       </div>
-
-      <div class="card highlighted">
-        <div class="card-header">
-          <h3>Team</h3>
-          <div class="price">Contact us</div>
-        </div>
-        <p>Support for teams adopting CCF.</p>
-        <ul class="features">
-          <li>Priority troubleshooting</li>
-          <li>Guided onboarding</li>
-          <li>Best-practice templates</li>
-          <li>SLAs</li>
-        </ul>
-        <div class="actions">
-          <a class="button" href="mailto:ian.miell@container-solutions.com">Contact sales</a>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-header">
-          <h3>Enterprise</h3>
-          <div class="price">Custom</div>
-        </div>
-        <p>Tailored services and integrations.</p>
-        <ul class="features">
-          <li>Enterprise features</li>
-          <li>Private plugins</li>
-          <li>Dedicated support</li>
-        </ul>
-        <div class="actions">
-          <a class="button" href="mailto:ian.miell@container-solutions.com">Contact sales</a>
-        </div>
+      <p>All core features. Self-hosted.</p>
+      <ul class="features">
+        <li>Plugin/agent framework</li>
+        <li>All public check plugins</li>
+        <li>Dashboards and findings</li>
+        <li>Community support</li>
+      </ul>
+      <div class="actions">
+        <a class="button" href="https://github.com/compliance-framework" target="_blank" rel="noopener">Get on GitHub</a>
       </div>
     </div>
-  </ContentBlock>
+
+    <div class="card highlighted">
+      <div class="card-header">
+        <h3>Team</h3>
+        <div class="price">Daily rates</div>
+      </div>
+      <p>Support for teams adopting CCF.</p>
+      <ul class="features">
+        <li>Guided onboarding</li>
+        <li>Priority troubleshooting</li>
+        <li>Bespoke plugin development</li>
+        <li>Best-practice templates</li>
+      </ul>
+      <div class="actions">
+        <a class="button" href="mailto:ian.miell@container-solutions.com">Contact sales</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <h3>Enterprise</h3>
+        <div class="price">£15,000/year</div>
+      </div>
+      <p>Tailored services and integrations.</p>
+      <ul class="features">
+        <li>Enterprise edition</li>
+        <li>Curated OSCAL catalogs</li>
+        <li>Support and maintenance</li>
+      </ul>
+      <div class="actions">
+        <a class="button" href="mailto:ian.miell@container-solutions.com">Contact sales</a>
+      </div>
+    </div>
+  </div>
+  </ContentBlockWide>
 </template>
 
 <style scoped>
