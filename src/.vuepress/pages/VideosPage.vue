@@ -23,6 +23,11 @@ import ContentBlock from "../components/ContentBlock.vue";
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowfullscreen
           ></iframe>
+            <p>
+              <a href="https://www.youtube.com/watch?v=EHdDzrXHWXs" target="_blank">
+              Watch this video
+              </a>
+            </p>
         </div>
         <p class="caption">Mapping Evidence to Controls</p>
       </div>
