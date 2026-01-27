@@ -4,7 +4,7 @@ Hosts the website, blog and docs for the Continuous Compliance Framework
 
 The website is built using [VuePress](https://vuepress.github.io/), and utilises a customised version of the [default theme](https://ecosystem.vuejs.press/themes/default/).
 
-It also utilises [TailwindCSS](https://tailwindcss.com/) for styling. 
+It also utilises [TailwindCSS](https://tailwindcss.com/) for styling.
 
 ## Installation
 
@@ -25,7 +25,7 @@ make build # Builds the website for distribution
 ## Contributing
 
 * `src/docs` hosts all of the CCF documentation.
-* `src/docs/sidebar.js` controls the sidebar links for the documentation.  
+* `src/docs/sidebar.js` controls the sidebar links for the documentation.
 * `src/posts` hosts all of the CCF blog content.
 
 Have a look around in the markdown files to see how to contribute your own. To learn more about frontmatter, components and markdown features have a look at the VuePress documentation for the most up to date content.
@@ -37,3 +37,11 @@ The pages for the website are VueJS Components with TailwindCSS styling. They ar
 To register a new page, you must register the page in `src/.vuepress/config.js`.
 
 To add the page to the navigation bar, you must also register it in `src/.vuepress/config.js`.
+
+## Analytics
+
+Available on:
+
+[Yandex](https://metrica.yandex.com/overview?id=103993750) on Ian's gmail account.
+
+If you create a yandex ID I can share the metrics with you (go to Account Settings => Representatives, and add the user's ID/email).
