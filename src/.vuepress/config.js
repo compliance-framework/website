@@ -8,8 +8,6 @@ import {getDirname, path} from 'vuepress/utils'
 import tailwindcss from "@tailwindcss/vite";
 import {createPage} from 'vuepress/core'
 
-import docsSidebar from '../docs/sidebar.js'
-
 const __dirname = import.meta.dirname || getDirname(import.meta.url)
 
 export default defineUserConfig({
@@ -53,10 +51,7 @@ export default defineUserConfig({
   ],
 
   theme: defaultTheme({
-    sidebar: {
-      '/docs/': docsSidebar,
-      '/': false,
-    },
+    sidebar: false,
     navbar: [
       {
         text: 'Home',
@@ -88,7 +83,7 @@ export default defineUserConfig({
       },
       {
         text: 'Docs',
-        link: '/docs/',
+        link: 'https://compliance-framework.github.io/docs',
       },
     ],
   }),
