@@ -35,7 +35,6 @@ succeeds without errors and the affected pages look right in `npm run dev`.
 - `src/.vuepress/styles/main.css`: Tailwind entry point (`@import "tailwindcss"`)
   and the dark-mode variant, which follows the theme's `data-theme=dark`.
 - `src/.vuepress/public/`: static files served from `/` (for example `/img/logo.svg`).
-  `public/docs/index.html` redirects the old `/docs/` URL to the external docs site.
 
 `src/.vuepress/dist`, `.temp` and `.cache` are build output. They are
 gitignored, so never edit them.
