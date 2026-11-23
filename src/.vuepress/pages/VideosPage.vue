@@ -15,6 +15,25 @@ import ContentBlock from "../components/ContentBlock.vue";
     <div class="video-grid">
 
       <div class="video">
+        <video
+          class="video-player"
+          controls
+          playsinline
+          preload="metadata"
+          poster="/video/ccf-showcase-demo-poster.jpg"
+          title="CCF showcase walkthrough"
+        >
+          <source src="/video/ccf-showcase-demo.mp4" type="video/mp4" />
+          Your browser can't play this video.
+          <a href="/video/ccf-showcase-demo.mp4">Download it as an MP4</a>.
+        </video>
+        <p class="caption">
+          Walkthrough: evidence, compliance mapping, risks and workflows for a demo bank's ten systems
+          (4 minutes, with voiceover)
+        </p>
+      </div>
+
+      <!--<div class="video">
         <div class="video-inner">
           <iframe
             src="https://youtube.com/embed/EHdDzrXHWXs"
@@ -23,16 +42,11 @@ import ContentBlock from "../components/ContentBlock.vue";
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowfullscreen
           ></iframe>
-            <p>
-              <a href="https://www.youtube.com/watch?v=EHdDzrXHWXs" target="_blank">
-              Watch this video
-              </a>
-            </p>
         </div>
         <p class="caption">Mapping Evidence to Controls</p>
       </div>
 
-      <!--<div class="video">
+      <div class="video">
         <div class="video-inner">
           <iframe
             src="https://www.youtube.com/embed/ysz5S6PUM-U"
@@ -108,6 +122,15 @@ import ContentBlock from "../components/ContentBlock.vue";
   inset: 0;
   width: 100%;
   height: 100%;
+}
+
+/* Self-hosted recordings are 1440x900 (16:10). */
+.video-player {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  background: #000;
+  border-radius: 0.5rem;
 }
 
 .caption {
