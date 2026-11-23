@@ -24,8 +24,7 @@ make build # Builds the website for distribution
 
 ## Contributing
 
-* `src/docs` hosts all of the CCF documentation.
-* `src/docs/sidebar.js` controls the sidebar links for the documentation.
+* The CCF documentation lives at https://compliance-framework.github.io/docs, not in this repo. The "Docs" navbar item links there.
 * `src/posts` hosts all of the CCF blog content.
 
 Have a look around in the markdown files to see how to contribute your own. To learn more about frontmatter, components and markdown features have a look at the VuePress documentation for the most up to date content.
