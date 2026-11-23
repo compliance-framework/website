@@ -36,8 +36,9 @@ succeeds without errors and the affected pages look right in `npm run dev`.
   and the dark-mode variant, which follows the theme's `data-theme=dark`.
 - `src/.vuepress/public/`: static files served from `/` (for example `/img/logo.svg`).
 - `demo-video/`: scripts that record the showcase demo video of the CCF UI,
-  with a voiceover from `demo-video/narration.json` (`make demo-video`, see
-  `demo-video/README.md`). Not part of the site build; the video goes to the
+  with a voiceover from `demo-video/narration.json` (`make demo-video`), and
+  capture the Features page screenshots into `public/img/features/`
+  (`make demo-screenshots`). See `demo-video/README.md`. Not part of the site build; the video goes to the
   gitignored `demo-video/out/` and voice clips to `demo-video/.cache/`.
 
 `src/.vuepress/dist`, `.temp` and `.cache` are build output. They are

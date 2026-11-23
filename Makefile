@@ -30,3 +30,7 @@ build: ## Build the static website files
 .PHONY: demo-video
 demo-video: ## Record the showcase demo video from a running local-dev CCF (see demo-video/README.md)
 	@demo-video/record.sh
+
+.PHONY: demo-screenshots
+demo-screenshots: ## Capture the Features page screenshots from a running local-dev CCF
+	@demo-video/screenshots.sh

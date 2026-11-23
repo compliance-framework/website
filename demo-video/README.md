@@ -1,10 +1,10 @@
 # Showcase demo video
 
 This folder holds the scripts that record a demo video of the Continuous Compliance
-Framework UI. The video runs about 4 minutes and shows the Meridian Financial Group
-showcase from the
-[local-dev](https://github.com/compliance-framework/local-dev) repo, with title
-cards, captions and a spoken voiceover. It is not part of the website build. Nothing under `demo-video/`
+Framework UI and capture the screenshots on the Features page, both from the
+Meridian Financial Group showcase in the
+[local-dev](https://github.com/compliance-framework/local-dev) repo. The video
+runs about 4 minutes, with title cards, captions and a spoken voiceover. It is not part of the website build. Nothing under `demo-video/`
 is published.
 
 ## What the video shows
@@ -95,6 +95,18 @@ onto the video at the moments their beats started.
 - **Adding a line.** Add it to `narration.json`, then play it from the scene with
   `const n = narrate('<id>'); …actions…; await n.done();`. A typo in an `id`
   stops the recording with an error instead of playing nothing.
+
+## Features page screenshots
+
+`make demo-screenshots` (or `demo-video/screenshots.sh`) captures the screenshots
+on the Features page from the same showcase and writes them straight to
+`src/.vuepress/public/img/features/`. Commit the changed PNGs to update the page.
+It takes the same `DEMO_URL`, `DEMO_EMAIL` and `DEMO_PASSWORD` settings as
+`record.sh`, and like the video it only reads.
+
+`screenshots.js` crops each shot to the main column (no sidebar) and hides the
+floating theme toggle. Add a shot there, then reference it from
+`src/.vuepress/pages/FeaturesPage.vue` with the `screenshot` class.
 
 ## Changing the video
 
