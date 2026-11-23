@@ -25,3 +25,8 @@ run: install build ## Run the website locally
 
 build: ## Build the static website files
 	@npm run build
+
+##@ Demo
+.PHONY: demo-video
+demo-video: ## Record the showcase demo video from a running local-dev CCF (see demo-video/README.md)
+	@demo-video/record.sh

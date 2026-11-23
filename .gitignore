@@ -7,3 +7,8 @@ src/.vuepress/.temp
 src/.vuepress/.cache
 # VuePress default build output directory
 src/.vuepress/dist
+# Demo video output (demo-video/record.sh)
+demo-video/out/
+.playwright-cli/
+# Cached voiceover clips (demo-video/voice.mjs)
+demo-video/.cache/
