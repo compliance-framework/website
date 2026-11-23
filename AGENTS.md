@@ -80,7 +80,10 @@ bar, also add it to `navbar` in `config.js`.
 Every push to `main` triggers `.github/workflows/pages.yml`, which runs
 `npm ci && npm run build` and publishes `src/.vuepress/dist` to GitHub Pages.
 A merge to `main` therefore goes live, so make sure the build passes before
-merging. Dependabot PRs for npm dependencies are routine.
+merging. The workflow does not run on PRs, so there is no CI build check:
+run `npm run build` locally first. If the build fails on esbuild with a
+wrong-architecture error, `node_modules` came from another machine; fix it
+with `npm ci`. Dependabot PRs for npm dependencies are routine.
 
 ## Don'ts
 
